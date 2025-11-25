@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Hari Guru</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+    :root {
+        --background-color: #FFF0F5; 
+        --box-bg-color: #FDF5E6; 
+        --text-color: #333; 
+        --hero-text-color: #000;
+        --accent-color: #E75480; 
+    }
+
+    body {
+        font-family: 'Roboto', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        text-align: center; 
+    }
+
+    /* -----------------------------------------
+       NAVBAR
+    ----------------------------------------- */
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 5%;
+        background-color: #fff;
+        font-size: 14px;
+        font-weight: bold;
+        color: #444;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        animation: headerSlide 0.8s ease-out forwards;
+    }
+
+    .nav-brand {
+        text-align: left;
+        line-height: 1.2;
+    }
+
+    .navbar nav ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar nav ul li {
+        margin-left: 20px;
+    }
+
+    .navbar nav ul li a {
+        text-decoration: none;
+        color: #444;
+        transition: 0.3s;
+    }
+
+    .navbar nav ul li a.active {
+        color: var(--accent-color);
+        border-bottom: 2px solid var(--accent-color);
+        padding-bottom: 5px;
+    }
+
+    /* -----------------------------------------
+       HERO
+    ----------------------------------------- */
+    .hero {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 20px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .hero-text {
+        flex: 1;
+        text-align: left;
+        padding-top: 50px;
+    }
+
+    #main-greeting {
+        font-family: 'Anton', sans-serif;
+        font-size: 8.5vw;
+        line-height: 1.1;
+        margin: 0;
+        color: var(--hero-text-color);
+        position: relative;
+        display: inline-block;
+        padding: 10px 0;
+        text-shadow: 3px 3px 0px #FFB6C1, -3px -3px 0px #FFB6C1,
+                     3px -3px 0px #FFB6C1, -3px 3px 0px #FFB6C1;
+        animation: heroPop 0.9s ease-out 0.5s forwards;
+        opacity: 0;
+    }
+
+    .hero-image {
+        flex: 1;
+        text-align: right;
+    }
+
+    .hero-image img {
+        max-width: 95%;   /* <<< DIBESARKAN */
+        height: auto;
+        border-radius: 10px;
+        animation: heroFadeIn 1s ease-out 1s forwards;
+        opacity: 0;
+    }
+
+    @keyframes heroFadeIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+    }
+    
+    /* --- KEYFRAME TAMBAHAN UNTUK MEMPERBAIKI TAMPILAN TEKS HOME --- */
+    @keyframes heroPop {
+        0% { transform: scale(0.8); opacity: 0; }
+        50% { transform: scale(1.1); opacity: 1; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes headerSlide {
+        from { transform: translateY(-100%); opacity: 0; }
+        to { transform: translateY(0); opacity: 1; }
+    }
+    /* ------------------------------------------------------------- */
+
+    /* -----------------------------------------
+       SECTION FIX: supaya active bisa terbaca
+    ----------------------------------------- */
+    #kesan, #kutipan {
+        min-height: 50vh;
+    }
+
+    /* -----------------------------------------
+       PESAN
+    ----------------------------------------- */
+    .message-section {
+        padding: 40px 5%;
+        text-align: left;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .message-title {
+        font-family: 'Caveat', cursive;
+        font-size: 48px;
+        margin-bottom: 20px;
+        padding-left: 20px;
+        font-weight: 700;
+    }
+
+    .message-box {
+        background-color: var(--box-bg-color);
+        border-radius: 20px;
+        padding: 30px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
+    }
+    
+    /* FIX: Penyesuaian untuk Desktop */
+    .message-content {
+        flex: 2; /* Beri lebih banyak ruang untuk teks */
+        padding-right: 30px;
+    }
+
+    .message-decoration {
+        flex: 1; /* Beri ruang yang pas untuk gambar */
+        max-width: 300px; /* Batasi ukuran gambar dekorasi di desktop */
+    }
+    /* END FIX */
+
+    .message-decoration img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px; /* Tambahkan radius agar seragam */
+    }
+
+    /* -----------------------------------------
+       KESAN
+    ----------------------------------------- */
+    .illustration-section {
+        max-width: 1000px;
+        margin: 40px auto;
+        text-align: center;
+    }
+
+    .illustration-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* -----------------------------------------
+       PENUTUP
+    ----------------------------------------- */
+    /* FIX: Penyesuaian untuk Desktop */
+    .closing-section {
+        padding: 40px 5%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    /* END FIX */
+
+    .closing-box {
+        display: flex;
+        justify-content: space-between;
+        gap: 40px;
+        text-align: left;
+    }
+
+    .terimakasih, .semoga {
+        flex: 1;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .box-title {
+        font-family: 'Caveat', cursive;
+        font-size: 48px;
+        margin-top: 0;
+        text-align: left;
+    }
+
+    /* -----------------------------------------
+       KUTIPAN
+    ----------------------------------------- */
+    .quote-section {
+        padding: 40px 5%;
+        max-width: 800px;
+        margin: 20px auto;
+        font-size: 18px;
+        font-weight: bold;
+        font-style: italic;
+    }
+
+    /* -----------------------------------------
+       FOOTER
+    ----------------------------------------- */
+    footer {
+        padding: 20px 0;
+        background-color: #fff;
+        font-size: 24px;
+        font-family: 'Anton', sans-serif;
+    }
+
+    /* -----------------------------------------
+       SCROLL REVEAL
+    ----------------------------------------- */
+    .scroll-reveal {
+        opacity: 0;
+        transform: translateY(40px);
+        transition: 0.8s ease-out;
+    }
+
+    .scroll-reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* -----------------------------------------
+       RESPONSIVE
+    ----------------------------------------- */
+    @media (max-width: 768px) {
+        /* 1. Navbar Mobile */
+        .navbar {
+            flex-direction: column;
+            gap: 5px; 
+            padding: 10px 5%;
+        }
+
+        .navbar nav ul {
+            justify-content: center; 
+            flex-wrap: wrap; 
+        }
+        
+        .navbar nav ul li {
+            margin: 5px 10px; 
+        }
+        
+        .nav-brand {
+            text-align: center;
+            font-size: 16px;
+        }
+
+        /* 2. Hero Mobile */
+        .hero {
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .hero-text {
+            padding-top: 10px;
+            text-align: center;
+        }
+
+        #main-greeting {
+            font-size: 15vw;
+            line-height: 1.0;
+            margin-bottom: 20px;
+        }
+
+        .hero-image {
+            width: 80%; 
+            text-align: center;
+        }
+
+        .hero-image img {
+            max-width: 100%; 
+        }
+
+        /* 3. Message Section Mobile */
+        .message-box {
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .message-content {
+            padding-right: 0;
+            margin-bottom: 20px;
+            order: 2; /* Pindahkan konten di bawah gambar */
+        }
+
+        .message-title {
+            text-align: center;
+            padding-left: 0;
+        }
+
+        .message-decoration {
+            max-width: 100%;
+            order: 1; /* Pindahkan gambar di atas konten */
+            margin-bottom: 20px;
+        }
+
+        /* 4. Closing Section Mobile */
+        .closing-box {
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .terimakasih, .semoga {
+            padding: 15px;
+        }
+
+        .box-title {
+            font-size: 36px;
+        }
+
+        /* 5. Footer Mobile */
+        footer {
+            font-size: 18px;
+        }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header class="navbar">
+    <div class="nav-brand">FOR TEACHERS<br>SMK IT GARUDA NUSANTARA</div>
+    <nav>
+      <ul>
+        <li><a href="#home">HOME</a></li>
+        <li><a href="#pesan">PESAN</a></li>
+        <li><a href="#kesan">KESAN</a></li>
+        <li><a href="#kutipan">KUTIPAN</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <h1 id="main-greeting">Happy Teacher's<br>Day Bapak Ibu :)</h1>
+    </div>
+    <div class="hero-image">
+      <img src="Images/bunga.png">
+    </div>
+  </section>
+
+  <section class="message-section" id="pesan">
+    <h2 class="message-title">For teachers</h2>
+    <div class="message-box">
+      <div class="message-content">
+        <p>Mungkin suatu hari nanti kami akan lupa detail pelajaran yang telah diajarkan. 
+        Tapi, kami tidak akan pernah lupa bagaimana <strong>Bapak/Ibu Guru membuat kami merasa dihargai</strong>.</p>
+        <p>Terima kasih telah menciptakan ruang kelas yang nyaman, tempat kami tidak hanya belajar tapi juga didengarkan. 
+        Terima kasih telah menjadi <strong>pendukung di saat kami ragu</strong>, dan menjadi <strong>sahabat di saat kami butuh bercerita</strong>.</p>
+        <p>Kami bersyukur pernah menjadi bagian dari <strong>didikan Bapak/Ibu</strong>.</p>
+      </div>
+      <div class="message-decoration">
+        <img src="Images/kartu.jpg">
+      </div>
+    </div>
+  </section>
+
+  <section class="illustration-section" id="kesan">
+    <div class="illustration-image">
+      <img src="Images/ngajar.jpg">
+    </div>
+  </section>
+
+  <section class="closing-section">
+    <div class="closing-box">
+      <div class="terimakasih">
+        <h2 class="box-title">Terimakasih</h2>
+        <p>Terima kasih, Bapak/Ibu Guru.</p>
+        <p>Bapak Ibu telah mengukir nama bersama kami, bukan hanya di papan tulis, tapi di hati kami.</p>
+      </div>
+
+      <div class="semoga">
+        <h2 class="box-title">Semoga</h2>
+        <p>Allah limpahkan kesehatan, kebahagiaan, dan kebaikan yang tak terhingga kepada Bapak dan Ibu Guru kami.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-section scroll-reveal" id="kutipan">
+    <p class="quote-text">
+      Jasa Bapak Ibu tak tertulis di buku pelajaran, tapi terukir abadi di setiap langkah dan pilihan hidup kami.
+    </p>
+  </section>
+
+  <footer>
+    <p>Happy Teacher's Day Bapak Ibu :)</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+
+        /* SMOOTH SCROLL */
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        /* ACTIVE NAV */
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar nav ul li a');
+
+        function changeActive() {
+            let current = '';
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop - 150;   /* <<< diperluas */
+                const sectionHeight = section.clientHeight + 250; /* <<< diperluas */
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', changeActive);
+        changeActive();
+
+        /* SCROLL REVEAL */
+        const revealTargets = [
+            '.message-box',
+            '.illustration-image img',
+            '.quote-section',
+            '.terimakasih',
+            '.semoga'     
+        ];
+
+        revealTargets.forEach(sel => {
+            // Cek jika elemen ada sebelum mencoba menambahkan class
+            const el = document.querySelector(sel);
+            if (el) {
+                // Elemen 'quote-section' sekarang sudah punya class 'scroll-reveal' di HTML, 
+                // tapi tidak masalah jika dipanggil ulang. Elemen lain membutuhkannya.
+                el.classList.add('scroll-reveal');
+            }
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.2 });
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            revealObserver.observe(el);
+        });
+
+    });
+  </script>
+
+</body>
+</html>
